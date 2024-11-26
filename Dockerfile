@@ -4,10 +4,13 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
 
 COPY ./requirements.txt /tmp/requirements.txt
+COPY ./requirements.dev.txt /tmp/requirements.dev.txt
 COPY ./scripts /scripts
 COPY ./app /app
 WORKDIR /app
 EXPOSE 8000
+
+ARG DEV=false
 
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
@@ -24,6 +27,9 @@ RUN python -m venv /py && \
         zlib-dev \
         linux-headers && \
     /py/bin/pip install -r /tmp/requirements.txt && \
+    if [ $DEV = "true" ] ; \
+        then /py/bin/pip install -r /tmp/requirements.dev.txt ; \
+    fi && \
     rm -rf /tmp && \
     apk del .tmp-build-deps && \
     chmod -R 755 /app && \

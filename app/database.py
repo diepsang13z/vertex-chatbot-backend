@@ -13,7 +13,13 @@ Base.metadata.create_all(bind=engine)
 
 
 def get_db():
-    """Generator function for dependency injection to fetch a new session on a new request."""
+    """
+    Dependency injection generator that provides a new database session
+    for each request.
+
+    This ensures that a fresh session is created, used, and properly closed
+    after the request is processed.
+    """
     db = Session()
     try:
         yield db

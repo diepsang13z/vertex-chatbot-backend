@@ -1,1 +1,1 @@
-# vertext-chatbot-backend
+# vertex-chatbot-backend

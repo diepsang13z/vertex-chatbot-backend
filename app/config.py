@@ -2,7 +2,7 @@ import os
 from pydantic_settings import BaseSettings
 
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
-ENV_TYPE = os.getenv('ENV', 'dev')
+ENV_TYPE = os.getenv('ENV_TYPE', 'dev')
 
 
 class BaseConfig(BaseSettings):
