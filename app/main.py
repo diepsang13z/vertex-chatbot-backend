@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-
+from config import settings
 
 app = FastAPI()
 
@@ -7,5 +7,6 @@ app = FastAPI()
 @app.get('/')
 async def root():
     return {
-        'message': '123'
+        'status': '200',
+        'message': 'Hello, World!',
     }
