@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from .gemini.routes import router as gemini_router
+from gemini.routes import router as gemini_router
 
 
 app = FastAPI()

@@ -2,7 +2,7 @@ import unittest
 
 from fastapi.testclient import TestClient
 
-from ..main import app
+from main import app
 
 SEND_MESSAGE_TO_GEMINI_URL = '/gemini/chat'
 

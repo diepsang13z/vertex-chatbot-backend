@@ -1,9 +1,10 @@
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import JSONResponse
 
-from .models import MessageRequest
-from .services import send_message
-from .prompts import IntroductionPrompt
+from gemini.models import MessageRequest
+from gemini.services import send_message
+from gemini.prompts import IntroductionPrompt
+
 
 router = APIRouter(
     prefix='/gemini',
