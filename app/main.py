@@ -1,11 +1,9 @@
 from fastapi import FastAPI
 
+from .gemini.routes import router as gemini_router
+
+
 app = FastAPI()
 
-
-@app.get('/')
-async def root():
-    return {
-        'status': '200',
-        'message': 'Hello, World!',
-    }
+# Register routes
+app.include_router(gemini_router)

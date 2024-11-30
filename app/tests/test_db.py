@@ -1,13 +1,14 @@
 import unittest
 from unittest.mock import patch, MagicMock
 
-from app.database import get_db
+from ..database import get_db
 
 
 class TestDB(unittest.TestCase):
 
     @patch('app.database.Session')
     def test_get_db(self, MockSession):
+        """Test database connection."""
         # Create a mock session object
         mock_session = MagicMock()
         MagicMock.return_value = mock_session

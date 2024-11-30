@@ -1,7 +1,6 @@
 import os
 from pydantic_settings import BaseSettings
 
-BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 ENV_TYPE = os.getenv('ENV_TYPE', 'dev')
 
 
@@ -15,10 +14,16 @@ class DevelopmentConfig(BaseConfig):
     ENVIRONMENT: str = 'dev'
     POSTGRES_URL: str = os.getenv('DEV_POSTGRES_URL', '')
 
+    GEMINI_API_KEY: str = os.getenv('DEV_GEMINI_API_KEY', '')
+    GEMINI_MODEL: str = os.getenv('DEV_GEMINI_MODEL', '')
+
 
 class ProductionConfig(BaseConfig):
     ENVIRONMENT: str = 'prod'
     POSTGRES_URL: str = os.getenv('PROD_POSTGRES_URL', '')
+
+    GEMINI_API_KEY: str = os.getenv('PROD_GEMINI_API_KEY', '')
+    GEMINI_MODEL: str = os.getenv('PROD_GEMINI_MODEL', '')
 
 
 def get_config(env_type: str) -> dict:

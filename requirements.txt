@@ -6,3 +6,5 @@ pytest
 SQLAlchemy
 psycopg2-binary
 sqlalchemy-utils
+
+google-generativeai
