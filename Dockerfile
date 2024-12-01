@@ -1,4 +1,4 @@
-FROM python:3.9-alpine3.20
+FROM python:3.12-alpine3.20
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1
@@ -32,7 +32,8 @@ RUN python -m venv /py && \
     fi && \
     rm -rf /tmp && \
     apk del .tmp-build-deps && \
-    chmod -R 755 /app && \
+    mkdir -p /vol/web/static && \
+    chmod -R 755 /vol && \
     chmod -R +x /scripts
 
 ENV PATH="/scripts:/py/bin:$PATH"

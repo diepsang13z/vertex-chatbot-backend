@@ -1,6 +1,8 @@
 fastapi[all]
 uvicorn[standard]
+
 pydantic-settings
+pydantic
 pytest
 
 SQLAlchemy

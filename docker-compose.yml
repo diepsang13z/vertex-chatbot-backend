@@ -17,6 +17,7 @@ services:
     volumes:
       - ./app:/app
       - ./scripts:/scripts
+      - dev-static-data:/vol/web
     depends_on:
       - db
 
@@ -33,3 +34,4 @@ services:
 
 volumes:
   dev-db-data:
+  dev-static-data:
