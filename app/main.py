@@ -1,10 +1,18 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.trustedhost import TrustedHostMiddleware
 
+from config import settings
 from gemini.routes import router as gemini_router
 
 # Initialize app
 app = FastAPI()
+
+# Middleware
+app.add_middleware(
+    TrustedHostMiddleware,
+    allowed_hosts=settings.ALLOWED_HOSTS,
+)
 
 # CORS
 cors_origins = ['0.0.0.0']

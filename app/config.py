@@ -6,7 +6,9 @@ from enums import Environment
 
 
 class BaseConfig(BaseSettings):
-    SECRET_KEY: str = os.getenv('SECRET_KEY', '')
+    SECRET_KEY: str = os.getenv('FAST_API_SECRET_KEY', '')
+    ALLOWED_HOSTS: list[str] = os.getenv(
+        'FAST_API_ALLOWED_HOSTS', ['localhost']).split(',')
     DEBUG: bool = bool(int(os.getenv('DEBUG', 0)))
 
 
