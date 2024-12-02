@@ -16,6 +16,9 @@ class DevelopmentConfig(BaseConfig):
 
     GEMINI_API_KEY: str = os.getenv('DEV_GEMINI_API_KEY', '')
     GEMINI_MODEL: str = os.getenv('DEV_GEMINI_MODEL', '')
+    GEMINI_MAX_OUTPUT_TOKENS: int = \
+        os.getenv('DEV_GEMINI_MAX_OUTPUT_TOKENS', 3000)
+    GEMINI_TEMPERATURE: float = os.getenv('DEV_GEMINI_TEMPERATURE', 1.0)
 
 
 class ProductionConfig(BaseConfig):
@@ -24,6 +27,9 @@ class ProductionConfig(BaseConfig):
 
     GEMINI_API_KEY: str = os.getenv('PROD_GEMINI_API_KEY', '')
     GEMINI_MODEL: str = os.getenv('PROD_GEMINI_MODEL', '')
+    GEMINI_MAX_OUTPUT_TOKENS: int = \
+        os.getenv('PROD_GEMINI_MAX_OUTPUT_TOKENS', 3000)
+    GEMINI_TEMPERATURE: float = os.getenv('PROD_GEMINI_TEMPERATURE', 1.0)
 
 
 def get_config(env: str):

@@ -17,8 +17,8 @@ def send_message(
     )
 
     generation_config_dict = {
-        'max_output_tokens': 20,
-        'temperature': 1.0,
+        'max_output_tokens': settings.GEMINI_MAX_OUTPUT_TOKENS,
+        'temperature': settings.GEMINI_TEMPERATURE,
     }
 
     response = model.generate_content(
